@@ -26,12 +26,14 @@ const GreetingCard = () => {
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
         const storedScore = localStorage.getItem('score');
-        
         if (storedUser) {
             setUser(storedUser);
         }
         if (storedScore) {
             setScore(parseInt(storedScore)); 
+        }
+        return ()=>{
+            localStorage.clear();
         }
     }, []);
 
@@ -77,7 +79,7 @@ const GreetingCard = () => {
                     </p>
                     {score < 7 && (
                       
-                        <Button  name={"Play Again"} />
+                        <Button  name={"Play Again"}  />
                         
                     )}
                 </div>
